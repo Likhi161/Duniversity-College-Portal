@@ -22,6 +22,7 @@ spec:
         image: likhithabhogyam/duniversity:v1.0.0
         ports:
         - containerPort: 3000
+
         resources:
           limits:
             memory: "512Mi"
@@ -30,11 +31,18 @@ spec:
             memory: "256Mi"
             cpu: "100m"
 
+     
         envFrom:
         - configMapRef:
             name: college-configmap
-
+            
         env:
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: MYSQL_USER
+
         - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
