@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: college-app
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  selector:
+    matchLabels:
+      app: college-app
+  template:
+    metadata:
+      labels:
+        app: college-app
+    spec:
+      containers:
+      - name: college-app
+        image: likhithabhogyam/duniversity:v1.0.0
+        ports:
+        - containerPort: 3000
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "200m"
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+
+        envFrom:
+        - configMapRef:
+            name: college-configmap
+
+        env:
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: MYSQL_PASSWORD
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: college-app-service
+spec:
+  selector:
+    app: college-app
+  ports:
+  - port: 80
+    targetPort: 3000
+  type: NodePort
