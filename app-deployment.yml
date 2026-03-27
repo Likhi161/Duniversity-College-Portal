@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: college-app
 spec:
-  replicas: 2
+  replicas: 1
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -35,7 +35,7 @@ spec:
         envFrom:
         - configMapRef:
             name: college-configmap
-            
+
         env:
         - name: DB_USER
           valueFrom:
