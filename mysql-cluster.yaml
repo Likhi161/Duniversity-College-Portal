@@ -9,3 +9,5 @@ spec:
     instances: 1
 
   secretName: mysql-secret
+
+  tlsUseSelfSigned: true   # 🔥 ADD THIS LINE
