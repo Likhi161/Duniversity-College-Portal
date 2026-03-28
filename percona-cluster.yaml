@@ -14,11 +14,9 @@ spec:
     volumeSpec:
       persistentVolumeClaim:
         accessModes: ["ReadWriteOnce"]
-        storageClassName: duniversity-storage   # ⚠️ change if needed
+        storageClassName: duniversity-storage   
         resources:
           requests:
             storage: 5Gi
 
-  proxysql:
-    enabled: true
-    size: 1
+  
