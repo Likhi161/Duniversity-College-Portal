@@ -1,7 +1,7 @@
 app:
   name: college-app
 
-replicaCount: 1
+replicaCount: 2
 
 image:
   repository: likhithabhogyam/duniversity
@@ -16,7 +16,7 @@ mysql:
 
 serviceName: mysql-service
 
-replicas: 2
+replicas: 1
 minReadySeconds: 10
 
 terminationGracePeriodSeconds: 10
