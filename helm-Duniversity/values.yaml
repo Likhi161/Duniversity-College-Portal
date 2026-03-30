@@ -1,7 +1,7 @@
 app:
   name: college-app
 
-replicaCount: 1
+replicaCount: 2
 
 image:
   repository: likhithabhogyam/duniversity
