@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: mysql
+  name: {{ .Values.mysql.name }}
 spec:
   selector:
     matchLabels:
       app: mysql   
 
-  serviceName: "mysql-service"   
+  serviceName: "{{ .Values.serviceName }}"  
 
-  replicas: 1
-  minReadySeconds: 10
+  replicas: {{ .Values.replicaCount }}
+  minReadySeconds: {{ .Values.minReadySeconds }}
 
   template:
     metadata:
@@ -18,14 +18,14 @@ spec:
         app: mysql   
 
     spec:
-      terminationGracePeriodSeconds: 10
+      terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
 
       containers:
       - name: mysql
-        image: mysql:5.7
+        image: {{ .Values.mysqlImagename }}
 
         ports:
-        - containerPort: 3306
+        - containerPort: {{ .Values.ports.containerPort }}
           name: mysql
 
         resources:

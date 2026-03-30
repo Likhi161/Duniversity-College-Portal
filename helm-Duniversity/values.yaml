@@ -10,3 +10,18 @@ image:
 
 ports:
   containerPort: 3000
+
+mysql:
+  name: mysql
+
+serviceName: mysql-service
+
+replicas: 1
+minReadySeconds: 10
+
+terminationGracePeriodSeconds: 10
+
+mysqlImagename: mysql:5.7
+
+ports:
+  containerPort: 3306
