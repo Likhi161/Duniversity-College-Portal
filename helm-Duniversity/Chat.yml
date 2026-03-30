@@ -1,0 +1,6 @@
+apiVersion: v2
+name: duniversity
+description: duniversity college portal
+type: application
+version: 1.0.0    #it is a chart version
+appVersion: 1.0.0 #it is the application version
