@@ -1,0 +1,12 @@
+app:
+  name: college-app
+
+replicaCount: 1
+
+image:
+  repository: likhithabhogyam/duniversity
+  tag: v1.0.0
+  imagePullPolicy: IfNotPresent
+
+ports:
+  containerPort: 3000
