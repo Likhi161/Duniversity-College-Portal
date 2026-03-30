@@ -21,7 +21,8 @@ spec:
       - name: college-app
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: {{ .Values.image.imagePullPolicy }}
-        ports: {{ .Values.ports }}
+        ports: 
+          - containerPort: {{ .Values.ports.containerPort }}
         resources:
           limits:
             memory: "512Mi"
