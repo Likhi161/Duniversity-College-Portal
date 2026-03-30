@@ -16,7 +16,7 @@ mysql:
 
 serviceName: mysql-service
 
-replicas: 1
+replicaCount: 1
 minReadySeconds: 10
 
 terminationGracePeriodSeconds: 10
